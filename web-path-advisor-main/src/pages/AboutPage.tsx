@@ -12,7 +12,7 @@ const AboutPage = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="text-center mb-12">
             <h1 className="text-3xl md:text-4xl font-bold mb-4 text-edu-text">
-              About CourseAI
+              About Learners-Bay Course Recommendation Model
             </h1>
             <p className="text-lg text-slate-600 max-w-2xl mx-auto">
               Using machine learning to find the perfect educational path for your career goals.
@@ -22,30 +22,14 @@ const AboutPage = () => {
           <div className="bg-white rounded-lg shadow-md p-6 md:p-8 mb-12">
             <h2 className="text-2xl font-semibold mb-6 text-edu-text">Our Mission</h2>
             <p className="text-slate-600 mb-6">
-              CourseAI was created with a simple mission: to help learners navigate the overwhelming world of online education by providing personalized course recommendations that truly match their needs, goals, and learning styles.
+            Learners-Bay Course Recommendation Model was created with a simple mission: to help learners navigate the overwhelming world of online education by providing personalized course recommendations that truly match their needs, goals, and learning styles.
             </p>
             <p className="text-slate-600">
               We believe that the right education can transform careers and lives, but finding the perfect courses shouldn't require hours of research. Our AI-powered recommendation engine streamlines this process, connecting you with the best learning resources in Frontend Development, MERN Stack, Android Development, and Data Analytics.
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-            <div className="bg-white rounded-lg shadow-md p-6 md:p-8">
-              <h2 className="text-xl font-semibold mb-4 text-edu-text">The Technology Behind CourseAI</h2>
-              <p className="text-slate-600 mb-4">
-                Our recommendation system is built on advanced machine learning algorithms implemented in Python. The system uses:
-              </p>
-              <ul className="list-disc pl-6 space-y-2 text-slate-600 mb-4">
-                <li>Collaborative filtering to identify patterns among similar learners</li>
-                <li>Content-based analysis to match course content with your goals</li>
-                <li>Natural language processing to understand course descriptions and reviews</li>
-                <li>Hybrid recommendation techniques for optimal matching</li>
-              </ul>
-              <p className="text-slate-600">
-                All of this is wrapped in a responsive, user-friendly interface built with modern web technologies.
-              </p>
-            </div>
-            
+          <div className="mb-12">
             <div className="bg-white rounded-lg shadow-md p-6 md:p-8">
               <h2 className="text-xl font-semibold mb-4 text-edu-text">How We Select Courses</h2>
               <p className="text-slate-600 mb-4">

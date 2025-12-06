@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 const FeaturesSection = () => {
   const features = [
     {
-      title: "AI-Powered Recommendations",
+      title: "Learners-Bay Course Recommendation Model",
       description: "Our machine learning model analyzes your goals, experience level, and learning style to provide personalized course recommendations.",
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-edu-purple">
@@ -38,19 +38,7 @@ const FeaturesSection = () => {
         </svg>
       ),
     },
-    {
-      title: "Python-Powered Backend",
-      description: "Our recommendation engine is built with cutting-edge Python machine learning libraries for accurate and effective suggestions.",
-      icon: (
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-edu-purple">
-          <path d="M18 16h2a2 2 0 0 0 2-2v-3c0-1.1.9-2 2-2h-8a4 4 0 0 0-4 4v2a3 3 0 0 1-3 3v3"></path>
-          <path d="M8 15h7"></path>
-          <path d="M11 18h4"></path>
-          <path d="M6 8h12"></path>
-          <path d="M6 12h13"></path>
-        </svg>
-      ),
-    },
+  
   ];
 
   return (

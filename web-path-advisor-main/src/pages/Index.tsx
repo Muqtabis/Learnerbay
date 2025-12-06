@@ -18,7 +18,7 @@ const Index = () => {
           <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
             <h2 className="text-3xl font-bold mb-6 text-edu-text">Ready to Find Your Perfect Course?</h2>
             <p className="text-lg text-slate-600 max-w-2xl mx-auto mb-8">
-              Our AI-powered recommendation engine will analyze your preferences and suggest the best learning path for you.
+              Learners-Bay Course Recommendation Model will analyze your preferences and suggest the best learning path for you.
             </p>
             <a 
               href="/recommendation" 

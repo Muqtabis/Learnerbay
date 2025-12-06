@@ -9,7 +9,7 @@ const HeroSection = () => {
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8 flex flex-col lg:flex-row items-center justify-between">
         <div className="lg:w-1/2 lg:pr-12 mb-12 lg:mb-0">
           <h1 className="text-4xl md:text-5xl font-bold mb-6 text-edu-text">
-            Find Your Perfect <span className="text-transparent bg-clip-text bg-hero-gradient animate-gradient-flow">Learning Path</span> with AI
+            Find Your Perfect <span className="text-transparent bg-clip-text bg-hero-gradient animate-gradient-flow">Learning Path</span> Learners-Bay Course Recommendation Model
           </h1>
           <p className="text-lg md:text-xl text-slate-600 mb-8">
             Our machine learning algorithm analyzes your skills, goals, and learning style to recommend the best courses in Frontend, MERN Stack, Android, and Data Analytics.
@@ -26,7 +26,7 @@ const HeroSection = () => {
         <div className="lg:w-1/2">
           <div className="relative bg-white p-6 rounded-xl shadow-lg">
             <div className="absolute -top-4 -right-4 bg-edu-purple text-white text-sm font-medium px-3 py-1 rounded-full">
-              ML-Powered
+              Demo
             </div>
             <div className="mb-6 border-b border-gray-200 pb-4">
               <div className="flex items-center">
