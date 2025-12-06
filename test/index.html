@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Learners B.A.Y | Home</title>
+  
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+
+  <style>
+    /* --- VARIABLES & RESET --- */
+    :root {
+      --primary: #2563eb; 
+      --secondary: #0891b2; 
+      --accent: #06b6d4;
+      --dark: #1e293b; 
+      --light: #64748b;
+      /* Optimized Glass: Higher opacity for better performance */
+      --glass: rgba(255, 255, 255, 0.9);
+      --glass-border: 1px solid rgba(255, 255, 255, 0.9);
+      --shadow: 0 10px 40px -10px rgba(0,0,0,0.05);
+      --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: "Poppins", sans-serif; 
+      color: var(--dark);
+      background: linear-gradient(135deg, #f0f9ff 0%, #cbebff 100%);
+      min-height: 100vh; 
+      display: flex; 
+      flex-direction: column; 
+      overflow-x: hidden;
+    }
+
+    a { text-decoration: none; color: inherit; transition: var(--transition); }
+    img { max-width: 100%; height: auto; display: block; }
+    ul { list-style: none; }
+
+    /* --- OPTIMIZED BACKGROUND BLOBS --- */
+    .blob {
+      position: fixed; /* Fixed prevents re-layout during scroll */
+      filter: blur(60px);
+      z-index: -1;
+      opacity: 0.5;
+      will-change: transform; /* tells browser to use GPU */
+      transform: translateZ(0);
+      animation: floatBlob 20s infinite alternate;
+    }
+    .b1 { top: -10%; left: -10%; width: 40vw; height: 40vw; background: #bae6fd; border-radius: 50%; }
+    .b2 { bottom: -10%; right: -10%; width: 40vw; height: 40vw; background: #a5b4fc; border-radius: 50%; animation-delay: -5s; }
+    
+    @media (max-width: 480px) { .blob { display: none; } } /* Hide on old phones */
+
+    @keyframes floatBlob {
+      0% { transform: translate(0, 0) translateZ(0); }
+      100% { transform: translate(30px, 20px) translateZ(0); }
+    }
+
+    /* --- NAVIGATION --- */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 1000;
+      background: rgba(255,255,255,0.98); /* Solid-ish for performance */
+      padding: 1rem 5%;
+      display: flex; justify-content: space-between; align-items: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+
+    .logo { 
+      font-size: 1.5rem; font-weight: 700; 
+      background: linear-gradient(45deg, var(--primary), var(--secondary)); 
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; 
+    }
+
+    .nav-links { display: flex; gap: 2.5rem; }
+    .nav-links a { font-weight: 500; position: relative; }
+    .nav-links a::after {
+      content: ''; position: absolute; width: 0; height: 2px; bottom: -4px; left: 0;
+      background: var(--primary); transition: var(--transition);
+    }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a:hover { color: var(--primary); }
+
+    .hamburger { display: none; font-size: 1.8rem; color: var(--primary); cursor: pointer; z-index: 1001; }
+
+    /* --- LAYOUT & SECTIONS --- */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; width: 100%; }
+    .section { padding: 140px 0 60px; }
+
+    /* --- HERO (Unified Card) --- */
+    .glass-card {
+      background: var(--glass);
+      border: 2px solid white;
+      padding: 4rem; 
+      border-radius: 30px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(5px); /* Reduced blur radius for speed */
+      transition: var(--transition);
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr; 
+      gap: 4rem;
+      align-items: center;
+      transform: translateZ(0);
+    }
+
+    .glass-card:hover { transform: translateY(-5px); box-shadow: 0 20px 50px -10px rgba(37, 99, 235, 0.1); }
+
+    .hero-content { text-align: left; }
+
+    .subtitle { 
+      color: var(--secondary); font-weight: 700; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;
+      background: rgba(8, 145, 178, 0.1); padding: 6px 14px; border-radius: 30px; 
+      display: inline-block; margin-bottom: 1.5rem;
+    }
+
+    .title { font-size: clamp(2.2rem, 4.5vw, 3.5rem); line-height: 1.15; margin-bottom: 1.5rem; font-weight: 700; }
+    .title span { color: var(--primary); }
+    .desc { color: var(--light); line-height: 1.7; font-size: 1.1rem; max-width: 600px; }
+
+    .hero-img-box { display: flex; justify-content: center; align-items: center; }
+    .hero-img { 
+      width: 100%; max-width: 450px; 
+      animation: floatImage 6s ease-in-out infinite; 
+      border-radius: 20px; 
+      will-change: transform;
+    }
+    
+    @keyframes floatImage {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
+
+    /* --- CALL TO ACTION --- */
+    .cta-box { 
+      margin: 5rem auto; 
+      text-align: center; 
+      background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+      padding: 4rem 2rem; 
+      border-radius: 30px; 
+      border: 3px solid white; 
+      box-shadow: var(--shadow); 
+      position: relative; overflow: hidden;
+    }
+    
+    .cta-box::before {
+      content: ''; position: absolute; top: -50px; left: -50px; width: 150px; height: 150px;
+      background: var(--primary); opacity: 0.05; border-radius: 50%;
+    }
+
+    .btn { 
+      display: inline-block; margin-top: 2rem;
+      padding: 1rem 3rem; 
+      background: linear-gradient(90deg, var(--primary), var(--secondary)); 
+      color: white; border-radius: 50px; font-weight: 600; letter-spacing: 0.5px;
+      box-shadow: 0 10px 20px -5px rgba(37, 99, 235, 0.3);
+      transition: var(--transition);
+    }
+    .btn:hover { transform: translateY(-3px) scale(1.02); }
+
+    /* --- FEATURES --- */
+    .features { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+      gap: 2rem; 
+      margin-bottom: 6rem; 
+    }
+
+    .f-card { 
+      background: white; padding: 2.5rem 2rem; border-radius: 20px; text-align: center; 
+      border: 1px solid rgba(255,255,255,0.5);
+      box-shadow: 0 5px 20px rgba(0,0,0,0.03); 
+      transition: var(--transition); 
+      display: block; /* Makes link behave like block */
+      cursor: pointer;
+    }
+    
+    .f-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.08); border-color: var(--primary); }
+    .f-card i { font-size: 3rem; color: var(--secondary); margin-bottom: 1.5rem; display: block; transition: var(--transition); }
+    .f-card:hover i { transform: scale(1.1); color: var(--primary); }
+    .f-card h3 { margin-bottom: 0.5rem; font-size: 1.25rem; color: var(--dark); }
+    .f-card p { font-size: 0.95rem; color: var(--light); }
+
+    /* --- FOOTER --- */
+    footer { 
+      background: var(--dark); color: white; padding: 4rem 1.5rem 2rem; 
+      text-align: center; margin-top: auto; border-top: 4px solid var(--primary);
+    }
+    footer h3 { color: var(--accent); margin-bottom: 1.5rem; font-size: 1.3rem; }
+    .contact-info { color: #cbd5e1; margin-bottom: 1.5rem; display: flex; justify-content: center; align-items: center; gap: 10px; }
+    .socials { display: flex; justify-content: center; gap: 1rem; margin-bottom: 2rem; }
+    .socials a { 
+      width: 45px; height: 45px; background: rgba(255,255,255,0.1); border-radius: 50%; 
+      display: flex; align-items: center; justify-content: center; transition: var(--transition);
+      font-size: 1.2rem;
+    }
+    .socials a:hover { background: var(--primary); transform: rotate(360deg); }
+    .copy { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 1.5rem; font-size: 0.85rem; color: #64748b; }
+
+    /* --- CHATBOT --- */
+    #bot-btn { 
+      position: fixed; bottom: 30px; right: 30px; 
+      background: linear-gradient(135deg, var(--primary), var(--secondary)); 
+      color: white; width: 65px; height: 65px; border-radius: 50%; 
+      display: grid; place-items: center; font-size: 30px; z-index: 2000; 
+      box-shadow: 0 10px 30px rgba(37,99,235,0.4); 
+      transition: var(--transition);
+    }
+    #bot-btn:hover { transform: scale(1.1); }
+    
+    /* --- ANIMATIONS --- */
+    .reveal { opacity: 0; transform: translateY(50px); transition: all 0.8s ease-out; }
+    .reveal.active { opacity: 1; transform: translateY(0); }
+    .delay-100 { transition-delay: 0.1s; }
+    .delay-200 { transition-delay: 0.2s; }
+    .delay-300 { transition-delay: 0.3s; }
+
+    /* --- RESPONSIVE --- */
+    @media (max-width: 900px) {
+      .glass-card { grid-template-columns: 1fr; gap: 3rem; padding: 2.5rem; text-align: center; }
+      .hero-content { text-align: center; }
+      .subtitle { align-self: center; }
+      .desc { margin: 0 auto; }
+      .hero-img-box { order: -1; margin-bottom: 1rem; }
+      .hero-img { max-width: 300px; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        position: fixed; top: 0; right: -100%; width: 75%; height: 100vh;
+        background: rgba(255, 255, 255, 0.98); flex-direction: column;
+        justify-content: center; align-items: center; box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+        transition: 0.4s ease-in-out;
+      }
+      .nav-links.open { right: 0; }
+      .hamburger { display: block; }
+      .section { padding-top: 100px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="blob b1"></div> 
+  <div class="blob b2"></div>
+
+  <nav>
+    <div class="logo"><a href="index.html">Learners B.A.Y</a></div>
+    <div class="hamburger" id="hamburger"><i class="ri-menu-3-line"></i></div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="Roadmaps.html">Roadmaps</a></li>
+      <li><a href="resource.html">Resources</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </nav>
+
+  <main class="container">
+    
+    <section class="section">
+      <div class="glass-card reveal">
+        
+        <div class="hero-content">
+          <span class="subtitle">Welcome to Learners B.A.Y</span>
+          <h1 class="title">Learn, <br><span>For your Fulfilment.</span></h1>
+          <p class="desc">Our mission is to deliver the best roadmaps without compromise. We curate the best resources so you don't have to, helping you learn faster and smarter.</p>
+        </div>
+
+        <div class="hero-img-box">
+          <img src="image/mainpic.png" alt="Student Learning" class="hero-img" loading="lazy" />
+        </div>
+
+      </div>
+    </section>
+
+    <div class="cta-box reveal">
+      <h2 class="title" style="margin-bottom: 0.5rem;">Try our <span>Course</span> Recommendation</h2>
+      <p class="desc" style="max-width: 600px; margin: 0 auto;">Stop guessing what to learn next. Get a personalized roadmap tailored specifically to your goals and skill level.</p>
+      <a href="http://localhost:8080/recommendation" class="btn">Explore Now <i class="ri-arrow-right-line"></i></a>
+    </div>
+
+    <div class="features">
+      
+      <a href="Roadmaps.html" class="f-card reveal delay-100">
+        <i class="ri-compass-3-line"></i>
+        <h3>Smart Roadmaps</h3>
+        <p>Curated paths for every technology stack to guide your journey from start to finish.</p>
+      </a>
+
+      <a href="about.html" class="f-card reveal delay-200">
+        <i class="ri-team-line"></i>
+        <h3>Expert Guidance</h3>
+        <p>Learn from industry experts and community contributors who share their knowledge.</p>
+      </a>
+
+      <a href="resource.html" class="f-card reveal delay-300">
+        <i class="ri-book-open-line"></i>
+        <h3>Top Resources</h3>
+        <p>Hand-picked tutorials, documentation, and project ideas from the best sources.</p>
+      </a>
+
+    </div>
+
+  </main>
+
+  <footer>
+    <h3>Connect With Us</h3>
+    <div class="contact-info"><i class="ri-mail-line"></i> support@learnersbay.com</div>
+    <div class="socials">
+      <a href="#"><i class="ri-linkedin-fill"></i></a>
+      <a href="#"><i class="ri-github-fill"></i></a>
+      <a href="#"><i class="ri-twitter-x-line"></i></a>
+      <a href="#"><i class="ri-instagram-line"></i></a>
+    </div>
+    <div class="copy">&copy; 2024 Learners B.A.Y. All rights reserved.</div>
+  </footer>
+
+  <a href="https://chatbot-frontend-jib1.onrender.com/" target="_blank" id="bot-btn">
+    <i class="ri-message-3-line"></i>
+  </a>
+
+  <script>
+    // Mobile Menu Toggle
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+      const icon = hamburger.querySelector('i');
+      if (navLinks.classList.contains('open')) {
+        icon.classList.replace('ri-menu-3-line', 'ri-close-line');
+      } else {
+        icon.classList.replace('ri-close-line', 'ri-menu-3-line');
+      }
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        hamburger.querySelector('i').classList.replace('ri-close-line', 'ri-menu-3-line');
+      });
+    });
+
+    // Scroll Animation Observer
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>

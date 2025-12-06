@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Roadmaps | Learners B.A.Y</title>
+  
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+
+  <style>
+    /* --- VARIABLES & THEME --- */
+    :root {
+      --primary: #2563eb; 
+      --secondary: #0891b2; 
+      --accent: #06b6d4;
+      --dark: #1e293b; 
+      --light: #64748b;
+      --glass: rgba(255, 255, 255, 0.8);
+      --glass-border: 1px solid rgba(255, 255, 255, 0.8);
+      --shadow: 0 10px 30px -5px rgba(0,0,0,0.1);
+      --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: "Poppins", sans-serif; 
+      color: var(--dark);
+      background: linear-gradient(135deg, #f0f9ff 0%, #cbebff 100%);
+      min-height: 100vh; 
+      display: flex; flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    a { text-decoration: none; color: inherit; transition: var(--transition); }
+    ul { list-style: none; }
+
+    /* --- OPTIMIZED BACKGROUND BLOBS --- */
+    .blob {
+      position: fixed; /* Fixed prevents layout thrashing on scroll */
+      filter: blur(60px);
+      z-index: -1;
+      opacity: 0.5;
+      will-change: transform; /* GPU Hint */
+      transform: translateZ(0); /* Hardware Acceleration */
+      animation: float 15s infinite alternate linear;
+    }
+    .b1 { top: -10%; left: -10%; width: 40vw; height: 40vw; background: #bae6fd; border-radius: 50%; }
+    .b2 { bottom: -10%; right: -10%; width: 40vw; height: 40vw; background: #a5b4fc; border-radius: 50%; }
+    
+    @media (max-width: 480px) { .blob { display: none; } } /* Hide on weak devices */
+    
+    @keyframes float { 
+      from { transform: translate(0,0) translateZ(0); } 
+      to { transform: translate(20px, 20px) translateZ(0); } 
+    }
+
+    /* --- NAVIGATION --- */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 1000;
+      background: rgba(255,255,255,0.95); backdrop-filter: blur(10px);
+      padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .logo { font-size: 1.5rem; font-weight: 700; background: linear-gradient(45deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .nav-links { display: flex; gap: 2rem; }
+    .nav-links a { font-weight: 500; font-size: 1rem; }
+    .nav-links a:hover { color: var(--primary); }
+    .menu-btn, #check { display: none; }
+
+    /* --- MAIN CONTENT --- */
+    .container { 
+      max-width: 1200px; 
+      margin: 100px auto 60px; 
+      padding: 0 1.5rem; 
+      flex: 1; 
+    }
+
+    /* Back Button */
+    .back-btn-wrapper {
+      width: 100%;
+      margin-top: 100px;
+      padding-left: 5%;
+      box-sizing: border-box;
+    }
+    .back-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: white; padding: 10px 20px; border-radius: 30px;
+      font-weight: 500; color: var(--primary); box-shadow: var(--shadow);
+      font-size: 0.9rem; border: 1px solid rgba(255,255,255,0.6);
+      transform: translateZ(0);
+    }
+    .back-btn:hover { transform: translateX(-3px); box-shadow: 0 5px 15px rgba(37,99,235,0.2); }
+
+    /* Header Section */
+    .page-header { text-align: center; margin-bottom: 3rem; }
+    .page-header h1 { font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 0.5rem; line-height: 1.2; }
+    .page-header h1 span { color: var(--primary); }
+    .page-header p { color: var(--light); font-size: clamp(1rem, 2vw, 1.1rem); max-width: 600px; margin: 0 auto; }
+
+    /* Intro Card */
+    .intro-card {
+      background: white; border-radius: 20px; padding: 2rem 3rem;
+      text-align: center; margin-bottom: 3rem;
+      border: 1px solid rgba(255,255,255,0.5); box-shadow: var(--shadow);
+      max-width: 900px; margin-left: auto; margin-right: auto;
+    }
+    .intro-card h3 { color: var(--dark); margin-bottom: 10px; font-size: 1.5rem; }
+    .intro-card p { color: var(--light); font-size: 1rem; line-height: 1.6; }
+
+    /* --- ROADMAP GRID --- */
+    .roadmap-grid {
+      display: grid;
+      width: 100%;
+      gap: 2rem;
+      grid-template-columns: repeat(3, 1fr); 
+      margin-bottom: 4rem;
+    }
+
+    .card {
+      background: var(--glass);
+      border: var(--glass-border);
+      border-radius: 24px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      display: flex; flex-direction: column; align-items: center;
+      height: 100%; 
+      transform: translateZ(0);
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      background: white;
+      box-shadow: 0 20px 40px rgba(37, 99, 235, 0.15);
+      border-color: var(--primary);
+    }
+
+    .card-icon {
+      width: 80px; height: 80px;
+      background: linear-gradient(135deg, #e0f2fe, #dbeafe);
+      color: var(--primary);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1.5rem;
+      font-size: 2.5rem;
+      transition: var(--transition);
+    }
+
+    .card:hover .card-icon { background: var(--primary); color: white; transform: rotate(10deg) scale(1.1); }
+
+    .card h2 { font-size: 1.4rem; margin-bottom: 0.8rem; color: var(--dark); font-weight: 600; }
+    .card p { font-size: 0.95rem; color: var(--light); margin-bottom: 2rem; line-height: 1.6; flex-grow: 1; }
+
+    .card-btn {
+      padding: 12px 30px; border: 2px solid var(--primary); border-radius: 50px;
+      color: var(--primary); font-weight: 600; font-size: 0.9rem; transition: var(--transition);
+    }
+    .card:hover .card-btn { background: var(--primary); color: white; box-shadow: 0 5px 15px rgba(37,99,235,0.3); }
+    .card-link { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; }
+
+    /* --- INFO SECTION --- */
+    .info-section { margin-top: 2rem; text-align: center; }
+    .info-section h2 { font-size: 2rem; margin-bottom: 2rem; color: var(--dark); }
+    .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+    .info-card {
+      background: rgba(255, 255, 255, 0.6); padding: 2rem; border-radius: 15px;
+      text-align: left; border: 1px solid white; transition: var(--transition);
+    }
+    .info-card:hover { background: white; transform: translateY(-5px); box-shadow: var(--shadow); }
+    .info-card i { font-size: 2rem; color: var(--secondary); margin-bottom: 1rem; display: block; }
+    .info-card h3 { font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--dark); }
+    .info-card p { font-size: 0.95rem; color: var(--light); line-height: 1.5; }
+
+    /* --- FOOTER --- */
+    footer { background: var(--dark); color: white; padding: 3rem 1.5rem; text-align: center; margin-top: auto; }
+    footer h3 { color: var(--accent); margin-bottom: 1rem; font-size: 1.3rem; }
+    .socials { display: flex; justify-content: center; gap: 1.2rem; margin-top: 1.5rem; }
+    .socials a { width: 45px; height: 45px; background: rgba(255,255,255,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; transition: var(--transition); }
+    .socials a:hover { background: var(--primary); transform: translateY(-3px); }
+    .copy { border-top: 1px solid rgba(255,255,255,0.1); margin-top: 2rem; padding-top: 1.5rem; font-size: 0.85rem; color: #94a3b8; }
+
+    /* --- CHATBOT --- */
+    #bot-btn { 
+      position: fixed; bottom: 30px; right: 30px; 
+      background: linear-gradient(135deg, var(--primary), var(--secondary)); 
+      color: white; width: 60px; height: 60px; border-radius: 50%; 
+      display: grid; place-items: center; font-size: 28px; z-index: 9999; 
+      box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4); transition: transform 0.3s;
+    }
+    #bot-btn:hover { transform: scale(1.1); }
+
+    /* --- ANIMATIONS --- */
+    .reveal { opacity: 0; transform: translateY(50px); transition: all 0.8s ease-out; }
+    .reveal.active { opacity: 1; transform: translateY(0); }
+    .delay-100 { transition-delay: 0.1s; } .delay-200 { transition-delay: 0.2s; }
+
+    /* --- RESPONSIVE --- */
+    @media (max-width: 1024px) { .roadmap-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 768px) {
+      .menu-btn { display: block; font-size: 1.8rem; color: var(--primary); cursor: pointer; z-index: 1001; }
+      .nav-links {
+        position: fixed; top: 0; left: -100%; width: 80%; height: 100vh;
+        background: rgba(255, 255, 255, 0.98); 
+        flex-direction: column; align-items: center; justify-content: center;
+        gap: 2.5rem; box-shadow: 10px 0 30px rgba(0,0,0,0.1);
+        transition: 0.4s ease-in-out; z-index: 999;
+      }
+      #check:checked ~ .nav-links { left: 0; }
+      .container { margin-top: 90px; padding: 0 1rem; }
+      .roadmap-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+      .card { padding: 2rem 1.5rem; }
+      .back-btn-wrapper { padding-left: 1.5rem; margin-top: 100px; }
+    }
+    @media (max-width: 480px) { .logo { font-size: 1.3rem; } .back-btn { font-size: 0.85rem; padding: 8px 20px; } }
+  </style>
+</head>
+<body>
+
+  <div class="blob b1"></div> 
+  <div class="blob b2"></div>
+
+  <nav>
+    <div class="logo"><a href="index.html">Learners B.A.Y</a></div>
+    <label for="check" class="menu-btn"><i class="ri-menu-line"></i></label>
+    <input type="checkbox" id="check">
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="Roadmaps.html">Roadmaps</a></li>
+      <li><a href="resource.html">Resources</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </nav>
+
+  <div class="back-btn-wrapper">
+    <a href="index.html" class="back-btn">
+      <i class="ri-arrow-left-line"></i> Back to Home
+    </a>
+  </div>
+
+  <div class="container">
+    
+    <div class="page-header reveal">
+      <h1>Choose Your <span>Path</span></h1>
+      <p>Select a career track to view the detailed step-by-step roadmap.</p>
+    </div>
+
+    <div class="intro-card reveal">
+      <h3>Stop Wasting Time on Random Tutorials</h3>
+      <p>
+        The biggest challenge for self-taught developers isn't learning—it's knowing <strong>what</strong> to learn. 
+        We've structured the chaos of the web into clear, linear paths.
+      </p>
+    </div>
+
+    <div class="roadmap-grid">
+      
+      <div class="card reveal delay-100">
+        <a href="Timeline.html" class="card-link"></a>
+        <div class="card-icon"><i class="ri-layout-3-line"></i></div>
+        <h2>Frontend Development</h2>
+        <p>Master HTML, CSS, React, and build beautiful user interfaces.</p>
+        <span class="card-btn">View Roadmap</span>
+      </div>
+
+      <div class="card reveal delay-100">
+        <a href="timeline2.html" class="card-link"></a>
+        <div class="card-icon"><i class="ri-server-line"></i></div>
+        <h2>Backend Development</h2>
+        <p>Learn Node.js, Databases, APIs and server-side logic.</p>
+        <span class="card-btn">View Roadmap</span>
+      </div>
+
+      <div class="card reveal delay-100">
+        <a href="timeline3.html" class="card-link"></a>
+        <div class="card-icon"><i class="ri-android-line"></i></div>
+        <h2>Android Development</h2>
+        <p>Build mobile apps using Kotlin, Java and Android Studio.</p>
+        <span class="card-btn">View Roadmap</span>
+      </div>
+
+      <div class="card reveal delay-200">
+        <a href="timeline4.html" class="card-link"></a>
+        <div class="card-icon"><i class="ri-bar-chart-grouped-line"></i></div>
+        <h2>Data Analyst</h2>
+        <p>Master Python, SQL, and Visualization to interpret data.</p>
+        <span class="card-btn">View Roadmap</span>
+      </div>
+
+      <div class="card reveal delay-200">
+        <a href="timeline5.html" class="card-link"></a>
+        <div class="card-icon"><i class="ri-cloud-windy-line"></i></div>
+        <h2>DevOps</h2>
+        <p>Bridge the gap between code and ops with Docker, K8s, and CI/CD.</p>
+        <span class="card-btn">View Roadmap</span>
+      </div>
+
+      <div class="card reveal delay-200">
+        <a href="timeline6.html" class="card-link"></a>
+        <div class="card-icon"><i class="ri-brain-line"></i></div>
+        <h2>AI & Machine Learning</h2>
+        <p>Build intelligent systems using Python, TensorFlow, and Deep Learning.</p>
+        <span class="card-btn">View Roadmap</span>
+      </div>
+
+    </div>
+
+    <div class="info-section reveal">
+      <h2>Why Follow Our Roadmaps?</h2>
+      <div class="info-grid">
+        <div class="info-card">
+          <i class="ri-check-double-line"></i>
+          <h3>Curated by Experts</h3>
+          <p>We cut through the noise. Instead of 50 options, we give you the 3 industry-standard tools you actually need to get hired.</p>
+        </div>
+        <div class="info-card">
+          <i class="ri-timer-flash-line"></i>
+          <h3>Up-to-Date Content</h3>
+          <p>Technology changes fast. Our roadmaps are updated for 2024/2025 standards, ensuring you don't learn obsolete tech.</p>
+        </div>
+        <div class="info-card">
+          <i class="ri-rocket-line"></i>
+          <h3>Project-Based Learning</h3>
+          <p>Theory isn't enough. Our paths emphasize building real-world projects to populate your portfolio.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <h3>Connect With Us</h3>
+    <p style="color: #cbd5e1; margin-bottom: 10px;"><i class="ri-mail-line"></i> support@learnersbay.com</p>
+    <div class="socials">
+      <a href="#"><i class="ri-linkedin-fill"></i></a>
+      <a href="#"><i class="ri-github-fill"></i></a>
+      <a href="#"><i class="ri-twitter-x-line"></i></a>
+      <a href="#"><i class="ri-instagram-line"></i></a>
+    </div>
+    <div class="copy">&copy; 2024 Learners B.A.Y. All rights reserved.</div>
+  </footer>
+
+  <a href="https://chatbot-frontend-jib1.onrender.com/" target="_blank" id="bot-btn">
+    <i class="ri-message-3-line"></i>
+  </a>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>

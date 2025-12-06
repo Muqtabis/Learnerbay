@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Resources | Learners B.A.Y</title>
+  
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+
+  <style>
+    /* --- VARIABLES & THEME --- */
+    :root {
+      --primary: #2563eb; 
+      --secondary: #0891b2; 
+      --accent: #06b6d4;
+      --dark: #1e293b; 
+      --light: #64748b;
+      --glass: rgba(255, 255, 255, 0.8);
+      --glass-border: 1px solid rgba(255, 255, 255, 0.8);
+      --shadow: 0 10px 30px -5px rgba(0,0,0,0.1);
+      --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: "Poppins", sans-serif; 
+      color: var(--dark);
+      background: linear-gradient(135deg, #f0f9ff 0%, #cbebff 100%);
+      min-height: 100vh; 
+      display: flex; flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    a { text-decoration: none; color: inherit; transition: var(--transition); }
+    img { max-width: 100%; height: auto; display: block; }
+    ul { list-style: none; }
+
+    /* --- OPTIMIZED BACKGROUND BLOBS --- */
+    .blob {
+      position: fixed; /* Fixed to prevent scroll lag */
+      filter: blur(60px);
+      z-index: -1;
+      opacity: 0.5;
+      will-change: transform; /* Hardware Acceleration */
+      transform: translateZ(0);
+      animation: float 15s infinite alternate linear;
+    }
+    .b1 { top: -10%; left: -10%; width: 40vw; height: 40vw; background: #bae6fd; border-radius: 50%; }
+    .b2 { bottom: -10%; right: -10%; width: 40vw; height: 40vw; background: #a5b4fc; border-radius: 50%; }
+    
+    @media (max-width: 480px) { .blob { display: none; } } /* Hide on old phones */
+    
+    @keyframes float { 
+      from { transform: translate(0,0) translateZ(0); } 
+      to { transform: translate(20px, 20px) translateZ(0); } 
+    }
+
+    /* --- NAVIGATION --- */
+    nav {
+      position: fixed; top: 0; width: 100%; z-index: 1000;
+      background: rgba(255,255,255,0.95); backdrop-filter: blur(10px);
+      padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    }
+    .logo { font-size: 1.5rem; font-weight: 700; background: linear-gradient(45deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .nav-links { display: flex; gap: 2rem; }
+    .nav-links a:hover { color: var(--primary); }
+    .menu-btn, #check { display: none; }
+
+    /* --- BACK BUTTON WRAPPER --- */
+    .back-btn-wrapper {
+      width: 100%;
+      margin-top: 100px;
+      padding-left: 5%; /* Align with Logo */
+      box-sizing: border-box;
+    }
+
+    .back-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: white; padding: 10px 20px; border-radius: 30px;
+      font-weight: 500; color: var(--primary); box-shadow: var(--shadow);
+      font-size: 0.9rem; border: 1px solid rgba(255,255,255,0.6);
+      transform: translateZ(0);
+    }
+    .back-btn:hover { transform: translateX(-3px); box-shadow: 0 5px 15px rgba(37,99,235,0.15); }
+
+    /* --- MAIN CONTENT --- */
+    .container { 
+      max-width: 1000px; 
+      margin: 20px auto 60px; 
+      padding: 0 1.5rem; 
+      flex: 1;
+    }
+
+    .page-title { text-align: center; margin-bottom: 2rem; }
+    .page-title h1 { font-size: clamp(2rem, 5vw, 2.5rem); color: var(--dark); font-weight: 700; }
+    .page-title h1 span { color: var(--primary); }
+
+    /* --- INTRO CARD --- */
+    .intro-card {
+      background: var(--glass);
+      border: var(--glass-border);
+      padding: 2rem 2.5rem;
+      border-radius: 20px;
+      text-align: center;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow);
+    }
+    .intro-card h3 { color: var(--dark); margin-bottom: 10px; font-size: 1.3rem; }
+    .intro-card p { color: var(--light); line-height: 1.6; font-size: 1rem; }
+
+    /* --- SEARCH BOX --- */
+    .search-box {
+      position: relative;
+      max-width: 500px;
+      margin: 0 auto 3rem;
+    }
+    .search-box input {
+      width: 100%;
+      padding: 15px 20px 15px 50px;
+      border-radius: 50px;
+      border: 2px solid white;
+      background: rgba(255, 255, 255, 0.9);
+      font-family: inherit; font-size: 1rem;
+      outline: none; box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+    .search-box input:focus { border-color: var(--primary); background: white; }
+    .search-box i { position: absolute; left: 20px; top: 50%; transform: translateY(-50%); color: var(--light); font-size: 1.2rem; }
+
+    /* Image Section */
+    .responsive-images { display: flex; justify-content: center; margin-bottom: 3rem; }
+    .responsive-images img { 
+      width: 100%; max-width: 600px; border-radius: 20px; 
+      box-shadow: var(--shadow); border: 4px solid white; 
+    }
+
+    /* --- TABLE STYLES --- */
+    .table-container {
+      background: white; border-radius: 20px;
+      box-shadow: var(--shadow); overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.5);
+      margin-bottom: 4rem;
+    }
+    .table { width: 100%; border-collapse: collapse; }
+    .table thead { background: linear-gradient(90deg, var(--primary), var(--secondary)); color: white; }
+    .table th, .table td { padding: 1.2rem; text-align: left; }
+    .table th { font-weight: 600; text-transform: uppercase; letter-spacing: 1px; font-size: 0.9rem; }
+    .table td { border-bottom: 1px solid #f1f5f9; color: var(--light); }
+    .table tr:last-child td { border-bottom: none; }
+    .table tbody tr:hover { background-color: #f8fafc; }
+
+    .resource-link {
+      display: inline-block; padding: 8px 16px;
+      background-color: rgba(37, 99, 235, 0.1); color: var(--primary);
+      border-radius: 6px; font-weight: 500; font-size: 0.9rem;
+    }
+    .resource-link:hover { background-color: var(--primary); color: white; }
+
+    /* --- TIPS SECTION --- */
+    .tips-section { margin-top: 3rem; }
+    .tips-section h2 { text-align: center; font-size: 1.8rem; margin-bottom: 2rem; color: var(--dark); }
+    
+    .tips-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .tip-card {
+      background: rgba(255,255,255,0.7); border: 1px solid white;
+      padding: 1.5rem; border-radius: 15px; transition: var(--transition);
+    }
+    .tip-card:hover { transform: translateY(-5px); background: white; box-shadow: var(--shadow); }
+    .tip-card i { font-size: 2rem; color: var(--secondary); margin-bottom: 10px; display: block; }
+    .tip-card h4 { font-size: 1.1rem; margin-bottom: 8px; color: var(--dark); }
+    .tip-card p { font-size: 0.9rem; color: var(--light); line-height: 1.5; }
+
+    /* --- FOOTER --- */
+    footer { background: var(--dark); color: white; padding: 4rem 1.5rem 2rem; text-align: center; margin-top: auto; }
+    footer h3 { color: var(--accent); margin-bottom: 1rem; font-size: 1.2rem; }
+    .socials { display: flex; justify-content: center; gap: 1rem; margin-top: 1rem; }
+    .socials a { 
+      width: 40px; height: 40px; background: rgba(255,255,255,0.1); border-radius: 50%; 
+      display: flex; align-items: center; justify-content: center; transition: var(--transition);
+    }
+    .socials a:hover { background: var(--primary); }
+    .copy { border-top: 1px solid rgba(255,255,255,0.1); margin-top: 2rem; padding-top: 1.5rem; font-size: 0.85rem; color: #94a3b8; }
+
+    /* --- CHATBOT --- */
+    #bot-btn { 
+      position: fixed; bottom: 30px; right: 30px; 
+      background: linear-gradient(135deg, var(--primary), var(--secondary)); 
+      color: white; width: 60px; height: 60px; border-radius: 50%; 
+      display: grid; place-items: center; font-size: 28px; z-index: 9999; 
+      box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4); transition: transform 0.3s;
+    }
+    #bot-btn:hover { transform: scale(1.1); }
+
+    /* --- RESPONSIVE --- */
+    @media(max-width: 768px) {
+      .menu-btn { display: block; font-size: 1.8rem; color: var(--primary); cursor: pointer; }
+      .nav-links {
+        position: fixed; top: 70px; left: -100%; width: 100%; height: calc(100vh - 70px);
+        background: white; flex-direction: column; align-items: center; justify-content: center;
+        transition: 0.3s; box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+      }
+      #check:checked ~ .nav-links { left: 0; }
+      .back-btn-wrapper { padding-left: 1.5rem; }
+    }
+
+    @media(max-width: 600px) {
+      .table thead { display: none; }
+      .table, .table tbody, .table tr, .table td { display: block; width: 100%; }
+      .table tr { margin-bottom: 1.5rem; background: white; border-radius: 15px; padding: 1rem; box-shadow: 0 4px 10px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; }
+      .table td { padding: 10px 0; border-bottom: 1px solid #f1f5f9; display: flex; justify-content: space-between; align-items: center; text-align: right; }
+      .table td:last-child { border-bottom: none; }
+      .table td::before { content: attr(data-label); font-weight: 600; color: var(--dark); text-align: left; margin-right: 15px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="blob b1"></div> 
+  <div class="blob b2"></div>
+
+  <nav>
+    <div class="logo"><a href="index.html">Learners B.A.Y</a></div>
+    <label for="check" class="menu-btn"><i class="ri-menu-line"></i></label>
+    <input type="checkbox" id="check">
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="Roadmaps.html">Roadmaps</a></li>
+      <li><a href="resource.html">Resources</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </nav>
+
+  <div class="back-btn-wrapper">
+    <a href="index.html" class="back-btn"><i class="ri-arrow-left-line"></i> Back to Home</a>
+  </div>
+
+  <div class="container">
+    
+    <div class="page-title">
+      <h1>Curated <span>Resources</span></h1>
+    </div>
+
+    <div class="intro-card">
+      <h3>Stop Searching, Start Learning</h3>
+      <p>
+        The internet is flooded with tutorials. We have hand-picked the most effective, industry-standard resources to save you time. 
+        Type in the search box below to filter by technology.
+      </p>
+    </div>
+
+    <div class="search-box">
+      <i class="ri-search-line"></i>
+      <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="Search resources (e.g., React, Python)...">
+    </div>
+
+    <div class="responsive-images">
+      <img src="image/final_img.jpg" alt="Learning Resources" loading="lazy">
+    </div>
+
+    <div class="table-container">
+      <table class="table" id="resourceTable">
+        <thead>
+          <tr>
+            <th>Technology</th>
+            <th>Link to Resource</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Technology">Frontend Development</td>
+            <td data-label="Resources">
+              <a href="https://www.coursera.org/search?query=Meta%20Front-End%20Developer&" class="resource-link" target="_blank">View on Coursera <i class="ri-external-link-line"></i></a>
+            </td>
+          </tr>
+          <tr>
+            <td data-label="Technology">MERN Development</td>
+            <td data-label="Resources">
+              <a href="https://www.youtube.com/watch?v=Vi9bxu-M-ag&list=PLDzeHZWIZsTo0wSBcg4-NMIbC0L8evLrD" class="resource-link" target="_blank">Watch on YouTube <i class="ri-youtube-line"></i></a>
+            </td>
+          </tr>
+          <tr>
+            <td data-label="Technology">Android Development</td>
+            <td data-label="Resources">
+              <a href="https://infyspringboard.onwingspan.com/web/en/login" class="resource-link" target="_blank">Infosys Springboard <i class="ri-external-link-line"></i></a>
+            </td>
+          </tr>
+          <tr>
+            <td data-label="Technology">Data Analyst</td>
+            <td data-label="Resources">
+              <a href="https://www.w3schools.com/" class="resource-link" target="_blank">Visit W3Schools <i class="ri-external-link-line"></i></a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="tips-section">
+      <h2>How to Learn Effectively</h2>
+      <div class="tips-grid">
+        <div class="tip-card">
+          <i class="ri-timer-flash-line"></i>
+          <h4>Consistency is Key</h4>
+          <p>Don't try to learn everything in one day. Code for 30-60 minutes every single day to build muscle memory.</p>
+        </div>
+        <div class="tip-card">
+          <i class="ri-code-s-slash-line"></i>
+          <h4>Build Projects</h4>
+          <p>Don't just watch videos. Apply what you learn by building small projects. It helps retain knowledge better.</p>
+        </div>
+        <div class="tip-card">
+          <i class="ri-book-open-line"></i>
+          <h4>Read Documentation</h4>
+          <p>Video tutorials are great, but official documentation is the single source of truth. Get comfortable reading it.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <h3>Connect With Us</h3>
+    <p style="color: #cbd5e1; margin-bottom: 10px;"><i class="ri-mail-line"></i> support@learnersbay.com</p>
+    <div class="socials">
+      <a href="#"><i class="ri-linkedin-fill"></i></a>
+      <a href="#"><i class="ri-github-fill"></i></a>
+      <a href="#"><i class="ri-instagram-line"></i></a>
+    </div>
+    <div class="copy">&copy; 2024 Learners B.A.Y. All rights reserved.</div>
+  </footer>
+
+  <a href="https://chatbot-frontend-jib1.onrender.com/" target="_blank" id="bot-btn">
+    <i class="ri-message-3-line"></i>
+  </a>
+
+  <script>
+    function filterTable() {
+      var input, filter, table, tr, td, i, txtValue;
+      input = document.getElementById("searchInput");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("resourceTable");
+      tr = table.getElementsByTagName("tr");
+
+      for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[0];
+        if (td) {
+          txtValue = td.textContent || td.innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+        }
+      }
+    }
+  </script>
+
+</body>
+</html>
