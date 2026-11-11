@@ -1,71 +1,102 @@
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import { Github, Globe, Mail } from "lucide-react";
 
 const Footer = () => {
   return (
     <footer className="bg-[#0f172a] text-white py-12 mt-auto border-t-4 border-blue-600">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          
-          {/* Brand Section */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
             <h3 className="text-2xl font-bold mb-4 text-cyan-400">Learners B.A.Y</h3>
-            <p className="text-slate-300 leading-relaxed">
-              Our mission is to deliver the best roadmaps without compromise, helping developers learn faster and smarter.
+            <p className="text-slate-300 text-sm leading-relaxed">
+              Structured career roadmaps, vetted documentation, and personalized course paths built to help aspiring developers learn faster and smarter.
             </p>
           </div>
 
-          {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4 text-cyan-400">Quick Links</h3>
-            <ul className="space-y-2">
+            <h3 className="text-lg font-semibold mb-4 text-cyan-400">Learning Hub</h3>
+            <ul className="space-y-2 text-sm">
               <li>
-                <Link to="/" className="text-slate-300 hover:text-blue-500 transition-colors">
-                  Home
+                <Link to="/roadmaps" className="text-slate-300 hover:text-cyan-300 transition-colors">
+                  Developer Roadmaps
                 </Link>
               </li>
               <li>
-                <Link to="/recommendation" className="text-slate-300 hover:text-blue-500 transition-colors">
-                  Get Recommendations
+                <Link to="/resources" className="text-slate-300 hover:text-cyan-300 transition-colors">
+                  Curated Resources
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="text-slate-300 hover:text-blue-500 transition-colors">
-                  About Us
+                <Link to="/recommendation" className="text-slate-300 hover:text-cyan-300 transition-colors">
+                  Course Path Finder
                 </Link>
               </li>
             </ul>
           </div>
 
-          {/* Contact & Socials */}
           <div>
-            <h3 className="text-lg font-semibold mb-4 text-cyan-400">Connect With Us</h3>
-            <div className="flex items-center gap-2 text-slate-300 mb-4">
-              <i className="ri-mail-line text-xl"></i>
-              <span>support@learnersbay.com</span>
-            </div>
-            
-            {/* Social Icons */}
-            <div className="flex space-x-4 mt-4">
-              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-blue-600 transition-all duration-300">
-                <i className="ri-linkedin-fill text-lg"></i>
+            <h3 className="text-lg font-semibold mb-4 text-cyan-400">Trust &amp; Legal</h3>
+            <ul className="space-y-2 text-sm">
+              <li>
+                <Link to="/about" className="text-slate-300 hover:text-cyan-300 transition-colors">
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" className="text-slate-300 hover:text-cyan-300 transition-colors">
+                  Contact &amp; Feedback
+                </Link>
+              </li>
+              <li>
+                <Link to="/privacy" className="text-slate-300 hover:text-cyan-300 transition-colors">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link to="/terms" className="text-slate-300 hover:text-cyan-300 transition-colors">
+                  Terms of Service
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-lg font-semibold mb-4 text-cyan-400">Project Channels</h3>
+            <div className="space-y-2 text-sm text-slate-300 mb-4">
+              <Link
+                to="/contact"
+                className="flex items-center gap-2 hover:text-cyan-300 transition-colors"
+              >
+                <Mail className="h-4 w-4 text-cyan-400" />
+                <span>Send Feedback / Inquiries</span>
+              </Link>
+              <a
+                href="https://github.com/Muqtabis/Learnerbay"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 hover:text-cyan-300 transition-colors"
+              >
+                <Github className="h-4 w-4 text-cyan-400" />
+                <span>GitHub Repository</span>
               </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-blue-600 transition-all duration-300">
-                <i className="ri-github-fill text-lg"></i>
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-blue-600 transition-all duration-300">
-                <i className="ri-twitter-x-line text-lg"></i>
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-blue-600 transition-all duration-300">
-                <i className="ri-instagram-line text-lg"></i>
+              <a
+                href="https://muqtabis.github.io/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 hover:text-cyan-300 transition-colors"
+              >
+                <Globe className="h-4 w-4 text-cyan-400" />
+                <span>Maintainer Portfolio</span>
               </a>
             </div>
           </div>
-
         </div>
 
-        {/* Copyright */}
-        <div className="border-t border-slate-700 mt-10 pt-6 text-center text-slate-400 text-sm">
+        <div className="border-t border-slate-700 mt-10 pt-6 text-center text-slate-400 text-sm space-y-1">
           <p>&copy; {new Date().getFullYear()} Learners B.A.Y. All rights reserved.</p>
+          <p className="text-xs text-slate-500">
+            Educational guidance and third-party resource links are provided for learning reference.
+          </p>
         </div>
       </div>
     </footer>

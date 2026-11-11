@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact &amp; Feedback | Learners B.A.Y</title>
+  <meta name="description" content="Contact Learners B.A.Y maintainers, suggest roadmap updates, or report broken links." />
+  <meta name="google-adsense-account" content="ca-pub-1934727219300615" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1934727219300615"
+       crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="shared-trust.css" />
+</head>
+<body>
+  <nav>
+    <div class="logo"><a href="index.html">Learners B.A.Y</a></div>
+    <label for="check" class="menu-btn"><i class="ri-menu-line"></i></label>
+    <input type="checkbox" id="check" />
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="Roadmaps.html">Roadmaps</a></li>
+      <li><a href="resource.html">Resources</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <main class="page-wrap">
+    <a href="index.html" class="back-btn"><i class="ri-arrow-left-line"></i> Back to Home</a>
+    <section class="trust-card">
+      <h1>Contact &amp; <span>Feedback</span></h1>
+      <p class="updated-note">Suggest roadmap improvements, share a new learning resource, or ask questions.</p>
+
+      <div class="contact-grid">
+        <div class="channel-box">
+          <h3><i class="ri-github-fill"></i> GitHub Issue Tracker</h3>
+          <p>Submit bug reports, broken link notices, or roadmap suggestions directly to the open-source repository.</p>
+          <a class="channel-link" href="https://github.com/Muqtabis/Learnerbay/issues" target="_blank" rel="noopener noreferrer">
+            Open GitHub Issues <i class="ri-external-link-line"></i>
+          </a>
+        </div>
+        <div class="channel-box">
+          <h3><i class="ri-global-line"></i> Maintainer Portfolio</h3>
+          <p>Explore project documentation and connect with maintainer Muqtabis Ahmar.</p>
+          <a class="channel-link" href="https://muqtabis.github.io/" target="_blank" rel="noopener noreferrer">
+            Visit Portfolio <i class="ri-external-link-line"></i>
+          </a>
+        </div>
+      </div>
+
+      <form class="contact-form" id="contactForm">
+        <div>
+          <label for="senderName">Your Name</label>
+          <input id="senderName" type="text" placeholder="e.g., Alex" required />
+        </div>
+        <div>
+          <label for="topicSelect">Topic</label>
+          <select id="topicSelect">
+            <option>Course or Roadmap Suggestion</option>
+            <option>Broken Link Report</option>
+            <option>Privacy or AdSense Inquiry</option>
+            <option>General Feedback</option>
+          </select>
+        </div>
+        <div>
+          <label for="messageInput">Message</label>
+          <textarea id="messageInput" rows="5" placeholder="Share details, track name, or resource URL..." required></textarea>
+        </div>
+        <button class="submit-btn" type="submit">Prepare Inquiry</button>
+      </form>
+
+      <div class="prepared-box" id="preparedBox">
+        <p>Your inquiry is formatted and ready to submit:</p>
+        <p style="margin-top: 0.4rem;">
+          <a id="issueLink" class="inline-link" href="https://github.com/Muqtabis/Learnerbay/issues/new" target="_blank" rel="noopener noreferrer">
+            Submit on GitHub Issues &rarr;
+          </a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <h3>Learners B.A.Y</h3>
+    <div class="footer-links">
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms of Service</a>
+    </div>
+    <div class="socials">
+      <a href="https://github.com/Muqtabis/Learnerbay" target="_blank" rel="noopener noreferrer" aria-label="GitHub Repository"><i class="ri-github-fill"></i></a>
+      <a href="https://muqtabis.github.io/" target="_blank" rel="noopener noreferrer" aria-label="Maintainer Portfolio"><i class="ri-global-line"></i></a>
+    </div>
+    <div class="copy">&copy; 2026 Learners B.A.Y. All rights reserved.</div>
+  </footer>
+
+  <script>
+    document.getElementById("contactForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      var name = document.getElementById("senderName").value.trim();
+      var topic = document.getElementById("topicSelect").value;
+      var msg = document.getElementById("messageInput").value.trim();
+      var title = "[" + topic + "] " + (name ? "From " + name : "Learnerbay Feedback");
+      var body = "**Name:** " + (name || "Anonymous") + "\n**Topic:** " + topic + "\n\n" + msg;
+      var url = "https://github.com/Muqtabis/Learnerbay/issues/new?title=" + encodeURIComponent(title) + "&body=" + encodeURIComponent(body);
+      document.getElementById("issueLink").href = url;
+      document.getElementById("preparedBox").style.display = "block";
+    });
+  </script>
+</body>
+</html>

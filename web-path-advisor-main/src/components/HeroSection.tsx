@@ -1,6 +1,5 @@
-
-import { Button } from '@/components/ui/button';
-import { Link } from 'react-router-dom';
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   return (
@@ -9,24 +8,28 @@ const HeroSection = () => {
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8 flex flex-col lg:flex-row items-center justify-between">
         <div className="lg:w-1/2 lg:pr-12 mb-12 lg:mb-0">
           <h1 className="text-4xl md:text-5xl font-bold mb-6 text-edu-text">
-            Find Your Perfect <span className="text-transparent bg-clip-text bg-hero-gradient animate-gradient-flow">Learning Path</span> Learners-Bay Course Recommendation Model
+            Find Your Perfect{" "}
+            <span className="text-transparent bg-clip-text bg-hero-gradient animate-gradient-flow">
+              Learning Path
+            </span>{" "}
+            with Learners B.A.Y
           </h1>
           <p className="text-lg md:text-xl text-slate-600 mb-8">
-            Our machine learning algorithm analyzes your skills, goals, and learning style to recommend the best courses in Frontend, MERN Stack, Android, and Data Analytics.
+            Explore step-by-step career roadmaps, curated documentation, and structured course recommendations across Frontend, MERN Stack, Android, Data Analytics, DevOps, and AI &amp; ML.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Button asChild size="lg" className="bg-edu-purple hover:bg-edu-darkblue text-white">
               <Link to="/recommendation">Get Course Recommendations</Link>
             </Button>
             <Button asChild variant="outline" size="lg">
-              <Link to="/about">Learn More</Link>
+              <Link to="/roadmaps">Explore Career Roadmaps</Link>
             </Button>
           </div>
         </div>
-        <div className="lg:w-1/2">
+        <div className="lg:w-1/2 w-full">
           <div className="relative bg-white p-6 rounded-xl shadow-lg">
             <div className="absolute -top-4 -right-4 bg-edu-purple text-white text-sm font-medium px-3 py-1 rounded-full">
-              Demo
+              Track Preview
             </div>
             <div className="mb-6 border-b border-gray-200 pb-4">
               <div className="flex items-center">
@@ -39,7 +42,7 @@ const HeroSection = () => {
               <div className="bg-slate-100 p-3 rounded-lg">
                 <div className="flex justify-between items-center mb-2">
                   <div className="text-sm font-medium text-slate-700">Frontend Development</div>
-                  <div className="text-xs bg-slate-200 px-2 py-1 rounded-full">98% Match</div>
+                  <div className="text-xs bg-slate-200 px-2 py-1 rounded-full">6 Milestones</div>
                 </div>
                 <div className="h-2 bg-slate-200 rounded-full overflow-hidden">
                   <div className="h-2 bg-gradient-to-r from-edu-blue to-edu-purple w-[98%]"></div>
@@ -47,8 +50,8 @@ const HeroSection = () => {
               </div>
               <div className="bg-slate-100 p-3 rounded-lg">
                 <div className="flex justify-between items-center mb-2">
-                  <div className="text-sm font-medium text-slate-700">MERN Stack</div>
-                  <div className="text-xs bg-slate-200 px-2 py-1 rounded-full">87% Match</div>
+                  <div className="text-sm font-medium text-slate-700">MERN Stack &amp; Backend</div>
+                  <div className="text-xs bg-slate-200 px-2 py-1 rounded-full">5 Milestones</div>
                 </div>
                 <div className="h-2 bg-slate-200 rounded-full overflow-hidden">
                   <div className="h-2 bg-gradient-to-r from-edu-blue to-edu-purple w-[87%]"></div>
@@ -56,8 +59,8 @@ const HeroSection = () => {
               </div>
               <div className="bg-slate-100 p-3 rounded-lg">
                 <div className="flex justify-between items-center mb-2">
-                  <div className="text-sm font-medium text-slate-700">Android Development</div>
-                  <div className="text-xs bg-slate-200 px-2 py-1 rounded-full">76% Match</div>
+                  <div className="text-sm font-medium text-slate-700">Android Development (Kotlin)</div>
+                  <div className="text-xs bg-slate-200 px-2 py-1 rounded-full">5 Milestones</div>
                 </div>
                 <div className="h-2 bg-slate-200 rounded-full overflow-hidden">
                   <div className="h-2 bg-gradient-to-r from-edu-blue to-edu-purple w-[76%]"></div>
@@ -65,8 +68,8 @@ const HeroSection = () => {
               </div>
               <div className="bg-slate-100 p-3 rounded-lg">
                 <div className="flex justify-between items-center mb-2">
-                  <div className="text-sm font-medium text-slate-700">Data Analytics</div>
-                  <div className="text-xs bg-slate-200 px-2 py-1 rounded-full">92% Match</div>
+                  <div className="text-sm font-medium text-slate-700">Data Analytics &amp; Python</div>
+                  <div className="text-xs bg-slate-200 px-2 py-1 rounded-full">4 Milestones</div>
                 </div>
                 <div className="h-2 bg-slate-200 rounded-full overflow-hidden">
                   <div className="h-2 bg-gradient-to-r from-edu-blue to-edu-purple w-[92%]"></div>

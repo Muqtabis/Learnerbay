@@ -4,6 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AI & ML Roadmap | Learners B.A.Y</title>
+  <meta name="description" content="Step-by-step AI and Machine Learning roadmap covering mathematics, Python, Scikit-Learn, deep learning, NLP, and computer vision." />
+  <meta name="google-adsense-account" content="ca-pub-1934727219300615" />
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1934727219300615"
+       crossorigin="anonymous"></script>
   
   <link href="https://cdn.jsdelivr.net/npm/remixicon@3.2.0/fonts/remixicon.css" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
@@ -52,6 +56,8 @@
     .left-container { left: 0; } .right-container { left: 50%; }
     .container img { position: absolute; width: 50px; height: 50px; border-radius: 50%; right: -25px; top: 32px; z-index: 10; background: white; border: 4px solid var(--secondary); object-fit: contain; padding: 5px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
     .right-container img { left: -25px; }
+    .step-badge { position: absolute; width: 50px; height: 50px; border-radius: 50%; right: -25px; top: 32px; z-index: 10; background: white; border: 4px solid var(--secondary); display: flex; align-items: center; justify-content: center; font-size: 1.35rem; color: var(--primary); box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+    .right-container .step-badge { left: -25px; right: auto; }
     .text-box { padding: 20px 30px; background: white; border-radius: 15px; font-size: 15px; box-shadow: var(--shadow); position: relative; border: 1px solid rgba(255,255,255,0.8); transition: var(--transition); }
     .text-box:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(37, 99, 235, 0.15); border-color: var(--primary); }
     .text-box h2 { font-weight: 700; color: var(--primary); margin-bottom: 10px; font-size: 1.4rem; }
@@ -68,6 +74,7 @@
       .container { width: 100%; padding-left: 80px; padding-right: 0; }
       .right-container { left: 0; }
       .left-container img, .right-container img { left: 6px; right: auto; }
+      .left-container .step-badge, .right-container .step-badge { left: 6px; right: auto; }
       .left-container-arrow, .right-container-arrow { border-right: 15px solid white; border-left: 0; left: -15px; }
     }
   </style>
@@ -83,6 +90,7 @@
       <li><a href="Roadmaps.html">Roadmaps</a></li>
       <li><a href="resource.html">Resources</a></li>
       <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
 
@@ -98,7 +106,7 @@
   <div class="timeline">
     
     <div class="container left-container">
-      <img src="image/math.png" alt="Math">
+      <div class="step-badge" aria-hidden="true"><i class="ri-bar-chart-grouped-line"></i></div>
       <div class="text-box">
         <h2>Mathematics</h2>
         <p>The core of AI. Focus on Linear Algebra, Calculus, Probability, and Statistics to understand how algorithms work.</p>
@@ -107,7 +115,7 @@
     </div>
 
     <div class="container right-container">
-      <img src="image/python.png" alt="Python">
+      <img src="image/py.jpeg" alt="Python">
       <div class="text-box">
         <h2>Python Programming</h2>
         <p>The language of AI. Master syntax, data structures, and libraries like Pandas and NumPy for data manipulation.</p>
@@ -116,7 +124,7 @@
     </div>
 
     <div class="container left-container">
-      <img src="image/ml.png" alt="ML">
+      <div class="step-badge" aria-hidden="true"><i class="ri-cpu-line"></i></div>
       <div class="text-box">
         <h2>Machine Learning</h2>
         <p>Learn Scikit-Learn. Understand Supervised (Regression, Classification) and Unsupervised Learning (Clustering).</p>
@@ -125,7 +133,7 @@
     </div>
 
     <div class="container right-container">
-      <img src="image/dl.png" alt="DL">
+      <div class="step-badge" aria-hidden="true"><i class="ri-brain-line"></i></div>
       <div class="text-box">
         <h2>Deep Learning</h2>
         <p>Dive into Neural Networks. Learn frameworks like TensorFlow or PyTorch to build complex models.</p>
@@ -134,7 +142,7 @@
     </div>
 
     <div class="container left-container">
-      <img src="image/nlp.png" alt="NLP/CV">
+      <div class="step-badge" aria-hidden="true"><i class="ri-rocket-line"></i></div>
       <div class="text-box">
         <h2>Specialization</h2>
         <p>Choose a path: Natural Language Processing (NLP) for text, or Computer Vision (CV) for images and video.</p>
@@ -145,14 +153,19 @@
   </div>
 
   <footer>
-    <h3>Connect With Us</h3>
-    <p style="color: #cbd5e1; margin-bottom: 10px;"><i class="ri-mail-line"></i> support@learnersbay.com</p>
+    <h3>Learners B.A.Y</h3>
+    <p style="color: #cbd5e1; margin-bottom: 12px; font-size: 0.9rem;">
+      <a href="about.html">About</a> &bull;
+      <a href="contact.html">Contact</a> &bull;
+      <a href="privacy.html">Privacy Policy</a> &bull;
+      <a href="terms.html">Terms of Service</a>
+    </p>
     <div class="socials">
-      <a href="#"><i class="ri-linkedin-fill"></i></a>
-      <a href="#"><i class="ri-github-fill"></i></a>
-      <a href="#"><i class="ri-instagram-line"></i></a>
+      <a href="https://github.com/Muqtabis/Learnerbay" target="_blank" rel="noopener noreferrer" aria-label="GitHub Repository"><i class="ri-github-fill"></i></a>
+      <a href="https://muqtabis.github.io/" target="_blank" rel="noopener noreferrer" aria-label="Maintainer Portfolio"><i class="ri-global-line"></i></a>
+      <a href="contact.html" aria-label="Contact and Feedback"><i class="ri-mail-line"></i></a>
     </div>
-    <div class="copy">&copy; 2024 Learners B.A.Y. All rights reserved.</div>
+    <div class="copy">&copy; 2026 Learners B.A.Y. All rights reserved.</div>
   </footer>
 
 </body>
